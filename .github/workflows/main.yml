@@ -18,7 +18,7 @@ jobs:
       with:
         deploymentMode: Complete
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: 'bicep-testing-dev'
+        resourceGroupName: bicep-testing-dev
         template: ./main.bicep
         failOnStdErr: false
 
@@ -27,7 +27,7 @@ jobs:
       with:
         deploymentMode: Complete
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: 'bicep-testing-test'
+        resourceGroupName: bicep-testing-test
         template: ./main.bicep
         failOnStdErr: false
 
@@ -36,6 +36,6 @@ jobs:
       with:
         deploymentMode: Complete
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: 'bicep-testing'
+        resourceGroupName: bicep-testing
         template: ./main.bicep
         failOnStdErr: false
