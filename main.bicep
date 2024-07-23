@@ -1,4 +1,4 @@
-targetScope = 'resourceGroup'
+/*targetScope = 'resourceGroup'
 
 @description('The name of the function app that you wish to create.')
 param appName string = 'fnapp${uniqueString(resourceGroup().id)}'
@@ -110,3 +110,4 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
     Request_Source: 'rest'
   }
 }
+*/
