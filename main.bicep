@@ -110,10 +110,10 @@ resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
 }*/
 targetScope='subscription'
 
-param environment string
-param location string = 'southcentralus'
+param resourceGroupName string
+param resourceGroupLocation string
 
 resource newRG 'Microsoft.Resources/resourceGroups@2024-03-01' = {
-  name: 'rg-${environment}-app'
-  location: location
+  name: 'rg-${resourceGroupName}'
+  location: 'southcentralus'
 }
