@@ -13,11 +13,29 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Deploy Bicep file
+    - name: Deploy Bicep file - Dev
       uses: azure/arm-deploy@v1
       with:
         deploymentMode: Complete
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
+        resourceGroupName: 'bicep-testing-dev'
+        template: ./main.bicep
+        failOnStdErr: false
+    
+    - name: Deploy Bicep file - Test
+      uses: azure/arm-deploy@v1
+      with:
+        deploymentMode: Complete
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: 'bicep-testing-test'
+        template: ./main.bicep
+        failOnStdErr: false
+
+    - name: Deploy Bicep file - Test
+      uses: azure/arm-deploy@v1
+      with:
+        deploymentMode: Complete
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: 'bicep-testing'
         template: ./main.bicep
         failOnStdErr: false
