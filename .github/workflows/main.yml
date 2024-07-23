@@ -13,7 +13,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Deploy Bicep file - Dev
+    - name: Deploy Bicep file Dev
       uses: azure/arm-deploy@v1
       with:
         deploymentMode: Complete
@@ -22,7 +22,7 @@ jobs:
         template: ./main.bicep
         failOnStdErr: false
     
-    - name: Deploy Bicep file - Test
+    - name: Deploy Bicep file Test
       uses: azure/arm-deploy@v1
       with:
         deploymentMode: Complete
@@ -31,7 +31,7 @@ jobs:
         template: ./main.bicep
         failOnStdErr: false
 
-    - name: Deploy Bicep file - Prod
+    - name: Deploy Bicep file Prod
       uses: azure/arm-deploy@v1
       with:
         deploymentMode: Complete
