@@ -18,9 +18,8 @@ jobs:
       with:
         deploymentMode: Complete
         scope: subscription
-        region: southcentralus
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        #resourceGroupName: ${{ secrets.AZURE_RG }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./main.bicep
         parameters: 'resourceGroupName=prod'
         failOnStdErr: false
