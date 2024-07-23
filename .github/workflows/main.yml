@@ -31,7 +31,7 @@ jobs:
         template: ./main.bicep
         failOnStdErr: false
 
-    - name: Deploy Bicep file - Test
+    - name: Deploy Bicep file - Prod
       uses: azure/arm-deploy@v1
       with:
         deploymentMode: Complete
