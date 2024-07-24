@@ -29,11 +29,14 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   properties: {
     supportsHttpsTrafficOnly: true
   }
-  resource tableService 'tableServices' = {
-    name: 'default'
+}
 
-    resource table 'tables' = {
-      name: '${uniqueStorageName}-table'
-    }
-  }
+resource services 'Microsoft.Storage/storageAccounts/tableServices@2021-08-01' = {
+  name: 'default'
+  parent: stg
+}
+
+resource storageaccount_tableService_table 'Microsoft.Storage/storageAccounts/tableServices/tables@2021-08-01' = {
+  name: '${storagePrefix}-table-${enviroment}'
+  parent: services
 }
