@@ -1,7 +1,7 @@
 name: Deploy Bicep file
 on: [push]
 jobs:
-  build-and-deploy:
+  build-and-deploy-dev:
     runs-on: ubuntu-latest
     steps:
 
@@ -21,6 +21,18 @@ jobs:
         resourceGroupName: bicep-testing-dev
         template: ./main.bicep
         failOnStdErr: false
+        
+  build-and-deploy-test:
+    runs-on: ubuntu-latest
+    steps:
+  
+    - name: Checkout code
+      uses: actions/checkout@main
+
+    - name: Log into Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy Bicep file Test
       uses: azure/arm-deploy@v1
@@ -30,6 +42,18 @@ jobs:
         resourceGroupName: bicep-testing-test
         template: ./main.bicep
         failOnStdErr: false
+    
+  build-and-deploy-prod:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@main
+
+    - name: Log into Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy Bicep file Prod
       uses: azure/arm-deploy@v1

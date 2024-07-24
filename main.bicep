@@ -1,3 +1,14 @@
+
+@description('Location for all resources.')
+param location string = resourceGroup().location
+
+param enviroment string
+
+resource AutomationAccount 'Microsoft.Automation/automationAccounts@2023-11-01' = {
+  name: 'automatio-account-${enviroment}'
+  location: location
+}
+
 /*targetScope = 'resourceGroup'
 
 @description('The name of the function app that you wish to create.')
