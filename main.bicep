@@ -17,10 +17,10 @@ param storagePrefix string
 ])
 param storageSKU string = 'Standard_LRS'
 
-var uniqueStorageName = storagePrefix
+var uniqueStorageName = '${storagePrefix}${enviroment}'
 
 resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: '${uniqueStorageName}${enviroment}'
+  name: uniqueStorageName
   location: location
   sku: {
     name: storageSKU
@@ -29,6 +29,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   properties: {
     supportsHttpsTrafficOnly: true
   }
-}
+  resource tableService 'tableServices' = {
+    name: 'default'
 
-output storageEndpoint object = stg.properties.primaryEndpoints
+    resource table 'tables' = {
+      name: '${uniqueStorageName}-table'
+    }
+  }
+}
