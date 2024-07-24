@@ -20,7 +20,7 @@ param storageSKU string = 'Standard_LRS'
 var uniqueStorageName = storagePrefix
 
 resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
-  name: '${uniqueStorageName}-${enviroment}'
+  name: '${uniqueStorageName}${enviroment}'
   location: location
   sku: {
     name: storageSKU

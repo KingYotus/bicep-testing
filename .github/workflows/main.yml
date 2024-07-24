@@ -20,7 +20,7 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: bicep-testing-dev
         template: ./main.bicep
-        parameters: 'enviroment=dev storagePrefix=mystore storageSKU=Standard_LRS'
+        parameters: 'enviroment=dev storagePrefix=bicepstg storageSKU=Standard_LRS'
         failOnStdErr: false
         
   build-and-deploy-test:
@@ -41,7 +41,7 @@ jobs:
         deploymentMode: Complete
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: bicep-testing-test
-        parameters: 'enviroment=test storagePrefix=mystore storageSKU=Standard_LRS'
+        parameters: 'enviroment=test storagePrefix=bicepstg storageSKU=Standard_LRS'
         template: ./main.bicep
         failOnStdErr: false
     
@@ -63,6 +63,6 @@ jobs:
         deploymentMode: Complete
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: bicep-testing
-        parameters: 'enviroment=prod storagePrefix=mystore storageSKU=Standard_LRS'
+        parameters: 'enviroment=prod storagePrefix=bicepstg storageSKU=Standard_LRS'
         template: ./main.bicep
         failOnStdErr: false
