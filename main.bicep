@@ -1,4 +1,4 @@
-var location = resourceGroup().location
+/*var location = resourceGroup().location
 param enviroment string
 
 @minLength(3)
@@ -49,4 +49,4 @@ resource storageaccount_queueservice_queue 'Microsoft.Storage/storageAccounts/qu
 resource queue 'Microsoft.Storage/storageAccounts/queueServices/queues@2023-01-01' = {
   name: '${storagePrefix}queue${enviroment}'
   parent: storageaccount_queueservice_queue
-}
+}*/
