@@ -37,6 +37,6 @@ resource services 'Microsoft.Storage/storageAccounts/tableServices@2021-08-01' =
 }
 
 resource storageaccount_tableService_table 'Microsoft.Storage/storageAccounts/tableServices/tables@2021-08-01' = {
-  name: '${storagePrefix}-table-${enviroment}'
+  name: '${storagePrefix}table${enviroment}'
   parent: services
 }
