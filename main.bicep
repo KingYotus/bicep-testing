@@ -40,3 +40,13 @@ resource storageaccount_tableService_table 'Microsoft.Storage/storageAccounts/ta
   name: '${storagePrefix}table${enviroment}'
   parent: services
 }
+
+resource storageaccount_queueservice_queue 'Microsoft.Storage/storageAccounts/queueServices@2023-01-01' = {
+  name: 'default'
+  parent: stg
+}
+
+resource queue 'Microsoft.Storage/storageAccounts/queueServices/queues@2023-01-01' = {
+  name: '${storagePrefix}queue${enviroment}'
+  parent: storageaccount_queueservice_queue
+}
