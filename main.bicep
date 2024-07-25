@@ -30,7 +30,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
     supportsHttpsTrafficOnly: true
   }
 }
-
+/*
 resource services 'Microsoft.Storage/storageAccounts/tableServices@2021-08-01' = {
   name: 'default'
   parent: stg
@@ -49,4 +49,4 @@ resource storageaccount_queueservice_queue 'Microsoft.Storage/storageAccounts/qu
 resource queue 'Microsoft.Storage/storageAccounts/queueServices/queues@2023-01-01' = {
   name: '${storagePrefix}queue${enviroment}'
   parent: storageaccount_queueservice_queue
-}
+}*/
