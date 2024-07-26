@@ -40,3 +40,4 @@ resource queue 'Microsoft.Storage/storageAccounts/queueServices/queues@2023-01-0
   name: '${storagePrefix}queue${enviroment}'
   parent: storageaccount_queueservice_queue
 }
+
